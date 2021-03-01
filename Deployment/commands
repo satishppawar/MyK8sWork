@@ -1,0 +1,40 @@
+  A) create MyK8sWork/Deployment/demo-deployemn.yaml
+
+  B) creae deployment
+  k create  -f MyK8sWork/Deployment/demo-deployemn.yaml
+
+  C) Get deployments
+ k get deployments -A
+
+D) describe deployments
+ k describe deployments -l app=demoapp
+ k describe deployments -l app=demoapp -A
+
+ k describe deployments -l app=demo-app-deploy -A
+ k describe deployments -l app=demoApp -A
+  k get deployments -l app=demoApp -A
+ k get rs -l app=demoapp -A
+
+  k get po -l app=demoapp -A
+
+
+4) kubectl set 
+
+  k set image deploy demo-app-deploy demoapp=nginx:1.9.1
+  k get po -l app=demoapp -A
+
+  k get po -l app=demoapp -A -w
+
+  5) rollout status
+  k rollout status deployment demo-app-deploy
+  k get deployments -l app=demoApp -A
+  k get po -l app=demoapp -A -w
+
+  5) rollout history
+  k set image deploy demo-app-deploy demoapp=nginx:1.91 --record
+  k rollout status deployment demo-app-deploy
+  k rollout history deployment demo-app-deploy
+
+   5) rollout undo
+  k rollout undo deployment demo-app-deploy
+  k rollout status deployment demo-app-deploy   

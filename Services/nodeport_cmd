@@ -1,0 +1,8 @@
+k create -f Deployment/demo-deployemn.yaml
+
+k create -f Services/nodeport-demo.yaml
+
+#cleanup
+
+k delete svc demoapp
+

@@ -1,0 +1,16 @@
+---
+kind: Namespace
+apiVersion: v1
+metadata:
+  name: contino
+  labels:
+    name: contino
+
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: nginx-svc-acct
+  namespace: contino
+  labels:
+    name: nginx-svc-acct

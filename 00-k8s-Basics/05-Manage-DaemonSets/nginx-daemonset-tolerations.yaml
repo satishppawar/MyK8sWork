@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: nginx
+  namespace: contino
+  labels:
+    app: nginx
+    name: nginx
+spec:
+  selector:
+    matchLabels:
+      app: nginx
+  template:
+    metadata:
+      labels:
+        app: nginx
+        name: nginx
+    spec:
+      serviceAccountName: nginx-svc-acct
+      containers:
+      - image: katacoda/docker-http-server:latest
+        name: nginx
+        ports:
+        - name: http
+          containerPort: 80
+      tolerations:
+      - key: node-role.kubernetes.io/master
+        effect: NoSchedule

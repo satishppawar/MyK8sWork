@@ -143,4 +143,6 @@ Delete happyelephant pod (remember set up path: /pods-manifests/)
 ```console
 kubectl apply -f 02-Pod/myPod.yaml
 ```
+----    ------     ----  --
+
 

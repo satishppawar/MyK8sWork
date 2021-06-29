@@ -1,0 +1,17 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: countdown
+spec:
+  completions: 8
+  parallelism: 2
+  template:
+    spec:
+      containers:
+      - name: countdown
+        image: bash
+        command: ["/bin/sh",  "-c"]
+        args: 
+          - for i in 9 8 7 6 5 4 3 2 1 ; do echo $i ; done &&
+            echo Perfect! 
+      restartPolicy: OnFailure
